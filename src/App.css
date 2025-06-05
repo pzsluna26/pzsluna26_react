@@ -1,9 +1,12 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: 80%; /*늘리기*/
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: azure; /*배경색상*/
 }
+
 
 .logo {
   height: 6em;

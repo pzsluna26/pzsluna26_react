@@ -1,14 +1,14 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import GroupText from './01/GroupText';
 
+function App() {
+  let x = 10;
   return (
     <>
-      <div>
+      <div className="flex bg-amber-200 justify-center">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -16,18 +16,13 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
+      <h1 className="text-4xl text-blue-300 font-bold">Vite + React</h1>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <GroupText />
+      <GroupText />
+      <GroupText />
     </>
   )
 }
