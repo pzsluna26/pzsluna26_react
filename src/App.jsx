@@ -23,15 +23,15 @@ function App() {
           
       <header className="w-full min-h-20 flex justify-between 
                         items-center bg-blue-200 ">
-          <div className="flex ml-10">
+          <div className="flex">
             <img src={reactLogo} alt="React logo" /> +
             <img src ={viteLogo} alt="vite logo" />
             {/* <img src ="vite.svg"/> */}
           </div>
           <GroupText/>
       </header>
-      <main className="w-full flex-grow flex flex-col justify-start 
-                      items-center overflow-y-auto py-10 ">
+      <main className="w-full flex  flex-col justify-center items-center 
+                       overflow-y-auto">
                       {/*
                         w-full         : 너비 100%
                         flex-grow      : 남은 공간 모두 차지
@@ -44,6 +44,7 @@ function App() {
                       */} 
           
           {/* <MyList/> */}
+          
           <Lotto/>
 
       </main>
