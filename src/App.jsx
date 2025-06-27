@@ -6,7 +6,9 @@ import MyClock from './02/MyClock'
 import MyDiv from './03/MyDiv'
 import MyListItem from './04/MyListItem'
 import MyList from './04/MyList.jsx'
-import Lotto from './05/Lotto.jsx'
+import Lotto from './05/Lotto'
+import FoodMain from './06/FoodMain'
+
 
 function App() {
   return (
@@ -23,15 +25,15 @@ function App() {
           
       <header className="w-full min-h-20 flex justify-between 
                         items-center bg-blue-200 ">
-          <div className="flex">
+          <div className="flex ml-10">
             <img src={reactLogo} alt="React logo" /> +
             <img src ={viteLogo} alt="vite logo" />
             {/* <img src ="vite.svg"/> */}
           </div>
           <GroupText/>
       </header>
-      <main className="w-full flex  flex-col justify-center items-center 
-                       overflow-y-auto">
+      <main className="w-full flex flex-col justify-start items-center
+                       overflow-y-auto flex-grow">
                       {/*
                         w-full         : 너비 100%
                         flex-grow      : 남은 공간 모두 차지
@@ -44,8 +46,8 @@ function App() {
                       */} 
           
           {/* <MyList/> */}
-          
-          <Lotto/>
+          {/* <Lotto/> */}
+          <FoodMain/>
 
       </main>
       <footer className="w-full min-h-20 flex justify-center items-center

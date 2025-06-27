@@ -1,12 +1,6 @@
+
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
 
-
-*{
-  padding: 0px;
-  margin: 0px;
-}
 body {
   margin: 0;
   padding: 0;
