@@ -5,8 +5,12 @@ import GroupText from './01/GroupText'
 import MyClock from './02/MyClock'
 import MyDiv from './03/MyDiv'
 import Lotto from './05/Lotto'
-import FoodMain2 from './07/FoodMain2'
+// import FoodMain2 from './07/FoodMain2'
 import MyList2 from './04/MyList2.jsx'
+import MyToggle from './07/MyToggle.jsx'
+import MyToggleBox from './07/MyToggleBox.jsx'
+import MyEffect from './08/MyEffect.jsx'
+
 
 
 function App() {
@@ -44,9 +48,12 @@ function App() {
                         py-10          : 상하 패딩 2.5rem
                       */} 
           
+          <MyClock/>
           {/* <MyList2/> */}
           {/* <Lotto/> */}
-          <FoodMain2/>
+          {/* <FoodMain2/> */}
+          {/* <MyToggle/> */}
+          {/* <MyEffect/> */}
 
       </main>
       <footer className="w-full min-h-20 flex justify-center items-center

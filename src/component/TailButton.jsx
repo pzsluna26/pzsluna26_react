@@ -1,8 +1,8 @@
 export default function TailButton({ caption, color, onClick }) {
   const bg = {
-    blue: "bg-blue-800",
-    orange: "bg-orange-800",
-    lime: "bg-lime-800",
+    blue: "bg-blue-200",
+    orange: "bg-orange-200",
+    lime: "bg-lime-200",
   };
 
   return (
