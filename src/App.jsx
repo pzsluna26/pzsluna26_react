@@ -5,7 +5,7 @@ import GroupText from './01/GroupText'
 import MyClock from './02/MyClock'
 import MyDiv from './03/MyDiv'
 import Lotto from './05/Lotto'
-import FoodMain from './06/FoodMain'
+import FoodMain2 from './07/FoodMain2'
 import MyList2 from './04/MyList2.jsx'
 
 
@@ -44,9 +44,9 @@ function App() {
                         py-10          : 상하 패딩 2.5rem
                       */} 
           
-          <MyList2/>
+          {/* <MyList2/> */}
           {/* <Lotto/> */}
-          {/* <FoodMain/> */}
+          <FoodMain2/>
 
       </main>
       <footer className="w-full min-h-20 flex justify-center items-center
