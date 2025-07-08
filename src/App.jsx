@@ -10,10 +10,13 @@ import MyList2 from './04/MyList2.jsx'
 import MyToggle from './07/MyToggle.jsx'
 import MyToggleBox from './07/MyToggleBox.jsx'
 import MyEffect from './08/MyEffect.jsx'
-
-
+import Traffic from './10/Traffic.jsx'
+import MyRef from './11/MyRef.jsx'
+import MyRefCopy from './11/MyRefCopy.jsx'
+import BoxOffice from './09/BoxOffice.jsx'
 
 function App() {
+
   return (
       <div className="w-full xl:w-4/5 h-screen bg-white mx-auto
                    flex flex-col justify-start items-start">
@@ -48,13 +51,16 @@ function App() {
                         py-10          : 상하 패딩 2.5rem
                       */} 
           
-          <MyClock/>
+          {/* <MyClock/> */}
           {/* <MyList2/> */}
           {/* <Lotto/> */}
           {/* <FoodMain2/> */}
           {/* <MyToggle/> */}
           {/* <MyEffect/> */}
-
+          {/* <Traffic/> */}
+          {/* <MyRef/> */}
+          <BoxOffice/>
+          {/* <MyRefCopy/> */}
       </main>
       <footer className="w-full min-h-20 flex justify-center items-center
                          bg-blue-400 text-white">

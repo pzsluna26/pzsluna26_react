@@ -1,83 +1,79 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect, useRef } from "react";
 
 export default function BoxOffice() {
+  const [tData, setTdata] = useState([]);
+  const [type, setType] = useState("r1");
+  const yRef = useRef();
 
-    const [tData, setTdata] = useState([]);
-    const [tag, setTag] = useState([]);
-    const [type, setType] = useState("r1"); 
+  // 1. 날짜가 바뀔 때 호출되는 함수
+  const getFetchData = async () => {
+    // 1-2. .env 파일에서 API 키 가져오기
+    const apikey = import.meta.env.VITE_MV_API;
+    // 2. 입력된 날짜를 가져와 YYYYMMDD 형식으로 변환
+    const dtRaw = yRef.current.value; // e.g. "2025-07-02"
+    if (!dtRaw) return;
+    const targetDt = dtRaw.replace(/-/g, "");
 
-    // 1. 박스오피스에서 가져오기
-    const getFetchData = async () => {
-        // 1-2. .env 파일에서 API 키 가져오기 (환경변수)
-        const apikey=import.meta.env.VITE_MV_API;
-        console.log("apikey", apikey) // 콘솔에 키 출력해보기
+    // 3. API URL 구성
+    const url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${apikey}&targetDt=${targetDt}`;
 
-        const targetDt= "20250702";
-        const url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${apikey}&targetDt=${targetDt}`;
-        //await 는 못내려가게 잡아줌
-        const resp = await fetch(url);
-        const data = await resp.json();
-        setTdata(data.boxOfficeResult.dailyBoxOfficeList);
-       
-        console.log(data.boxOfficeResult.dailyBoxOfficeList);
+    try {
+      // 4. 데이터 fetch
+      const resp = await fetch(url);
+      const data = await resp.json();
+      // 5. 성공 시 state 업데이트
+      setTdata(data.boxOfficeResult.dailyBoxOfficeList);
+    } catch (error) {
+      console.error("박스오피스 API 호출 에러:", error);
+      setTdata([]);
     }
-    const handleRadioChange = (e) => {
-        setType(e.target.value);
-    };
+  };
 
-    // 7. 폼 제출 시 실행할 함수
-    const handleSubmit = (e) => {
-        e.preventDefault(); // 기본 제출 막기
-        console.log("선택된 유형:", type);
-        // 여기서 type 값(r1, r2, r3)을 이용해 필터링하거나 요청할 수 있어요
-    };
+  // 6. type 변경에 따른 처리를 handleSubmit에서 연결해도 되고
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getFetchData();
+  };
 
-    // 2. 데이터가채워지고 난 다음!!!!컴포넌트가 처음 화면에 나타났을 때 실행
-    useEffect(()=>{
-        getFetchData();
-    },[]);
-
-    useEffect(()=>{
-        let tm = tData.map(item => 
-            <tr key ={item.movieCd}>
-                <th scope="col" class="px-6 py-3">
-                    Product name
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Color
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Category
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
-                </th>
-            </tr> )
-            setTag(tm)
-    },[tData])
+  // 7. 컴포넌트 최초 렌더링 시 오늘 날짜로 자동 조회
+  useEffect(() => {
+    if (!yRef.current) return;
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    yRef.current.value = todayStr;
+    getFetchData();
+  }, []);
 
   return (
     <div className="mt-15">
-        <h2 className="mt-4 text-2xl font-bold ">일별 박스오피스</h2>
-         <form className="mt-5 mb-4">
-             <input type="radio" name="r" id="r1" value="r1"checked={type === "r1"}
-    onChange={handleRadioChange} />
-             <label className="mr-2" for="r1">전체</label>
-             <input type="radio" name="r" id="r2" value="r2" checked={type === "r2"}
-    onChange={handleRadioChange}/>
-             <label className="mr-2" for="r2">상업</label>
-            <input type="radio" name="r" id="r3" value="r3" checked={type === "r3"}
-    onChange={handleRadioChange}/>
-             <label for="r3">독립예술</label>
-             <button className="ml-3 border rounded-sm" >조회</button>
-        </form>
-      
+      <form className="flex justify-end items-center gap-2 mb-4" onSubmit={handleSubmit}>
+        <input
+          ref={yRef}
+          type="date"
+          name="myDate"
+          min="1900-01-01"
+          max="2025-07-07"
+          onChange={getFetchData}
+          className="border border-gray-300 rounded p-2"
+        />
+        {/* <select value={type} onChange={(e) => setType(e.target.value)} className="border rounded p-2">
+          <option value="r1">전체</option>
+          <option value="r2">상업</option>
+          <option value="r3">독립예술</option>
+        </select> */}
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+          조회
+        </button>
+      </form>
+
+      <h2 className="m-6 text-2xl font-bold">일별 박스오피스</h2>
+
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-700">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+          <thead className="text-xs uppercase bg-gray-100">
             <tr>
               <th className="px-6 py-3">순위</th>
               <th className="px-6 py-3">영화명</th>
@@ -90,22 +86,26 @@ export default function BoxOffice() {
             {tData.length === 0 ? (
               <tr>
                 <td colSpan="5" className="text-center py-4">
-                  데이터 로딩 중...
+                  데이터 없음
                 </td>
               </tr>
             ) : (
-              tData.map((item) => (
-                <tr
-                  key={item.movieCd}
-                  className="border-b hover:bg-gray-50 even:bg-gray-50"
-                >
-                  <td className="px-6 py-3 text-center">{item.rank}</td>
-                  <td className="px-6 py-3">{item.movieNm}</td>
-                  <td className="px-6 py-3 text-center">{item.openDt}</td>
-                  <td className="px-6 py-3 text-right">{item.audiCnt}</td>
-                  <td className="px-6 py-3 text-right">{item.audiAcc}</td>
-                </tr>
-              ))
+              tData
+                .filter((item) => {
+                  if (type === "r1") return true;
+                  if (type === "r2") return item.rankOldAndNew === "NEW" || Number(item.rank) <= 10;
+                  if (type === "r3") return item.rankOldAndNew === "OLD";
+                  return true;
+                })
+                .map((item) => (
+                  <tr key={item.movieCd} className="border-b hover:bg-gray-50 even:bg-gray-50">
+                    <td className="px-6 py-3 text-center">{item.rank}</td>
+                    <td className="px-6 py-3">{item.movieNm}</td>
+                    <td className="px-6 py-3 text-center">{item.openDt}</td>
+                    <td className="px-6 py-3 text-right">{item.audiCnt}</td>
+                    <td className="px-6 py-3 text-right">{item.audiAcc}</td>
+                  </tr>
+                ))
             )}
           </tbody>
         </table>
@@ -113,27 +113,3 @@ export default function BoxOffice() {
     </div>
   );
 }
-
-
- // 독립영화 , 전체, 상업영화 분류 label 로 만들어보기 
- // // 1. React 컴포넌트 안에서 form 태그 만들기 (class → className으로 바꾸기)
-    //    <form>
-    //         <input type="radio" name="r" id="r1" value="r1" checked/>
-    //         <label for="r1">전체</label>
-    //         <input type="radio" name="r" id="r2" value="r2"/>
-    //         <label for="r2">상업</label>
-    //         <input type="radio" name="r" id="r3" value="r3"/>
-    //         <label for="r3">독립예술</label>
-    //         <button>조회</button>
-    //    </form>
-    
-
-    // // 5. 라디오 버튼 상태를 useState로 관리하기 (초기값 설정)
-
-    // // 6. 라디오 버튼 input에 onChange 이벤트 넣어 상태 변경 처리하기
-
-    // // 7. 버튼 태그 만들고, 클릭 시 폼 제출 이벤트 막기 (preventDefault)
-
-    // // 8. 버튼 클릭 시 현재 선택된 라디오 상태로 원하는 로직 실행하기
-
-    // // 9. 전체 컴포넌트 리턴 안에 form과 input, label, button 렌더링하기
