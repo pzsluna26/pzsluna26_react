@@ -14,6 +14,10 @@ import Traffic from './10/Traffic.jsx'
 import MyRef from './11/MyRef.jsx'
 import MyRefCopy from './11/MyRefCopy.jsx'
 import BoxOffice from './09/BoxOffice.jsx'
+import Gallery from './12/Gallery.jsx'
+import Gallery2 from './12/Gallery2.jsx'
+import Festival2 from './13/Festival2.jsx'
+
 
 function App() {
 
@@ -39,7 +43,7 @@ function App() {
           <GroupText/>
       </header>
       <main className="w-full flex flex-col justify-start items-center
-                       overflow-y-auto flex-grow">
+                       overflow-y-auto flex-grow mb-8">
                       {/*
                         w-full         : 너비 100%
                         flex-grow      : 남은 공간 모두 차지
@@ -59,8 +63,12 @@ function App() {
           {/* <MyEffect/> */}
           {/* <Traffic/> */}
           {/* <MyRef/> */}
-          <BoxOffice/>
+          {/* <BoxOffice/> */}
           {/* <MyRefCopy/> */}
+          {/* <Gallery/> */}
+          {/* <Gallery2/> */}
+          <Festival2/>
+
       </main>
       <footer className="w-full min-h-20 flex justify-center items-center
                          bg-blue-400 text-white">
