@@ -21,7 +21,7 @@ export default function FoodMain() {
 
             
    return (
-    <div className="w-full flex flex-col justify-start items-center">
+    <div className="mt-10 w-full flex flex-col justify-start items-center">
       <div className="w-8/10 bg-amber-100 h-20 mb-10
                       flex justify-center items-center">
          {group.map(item => <TailButton key={item} 
