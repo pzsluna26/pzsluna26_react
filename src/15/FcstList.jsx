@@ -51,7 +51,6 @@ export default function FcstList() {
                             </option>)}
         </select>
       </div>
-
     </div>
   )
 }
