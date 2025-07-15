@@ -5,7 +5,7 @@ export default function RoutePage1() {
 
   console.log(item1, item2)
   return (
-    <div className="w-9/10 mt-10 flex flex-col justify-center items-center">
+    <div className="w-full mt-10 flex flex-col justify-center items-center">
       <h1 className="text-2xl font-bold text-center">RoutePage1</h1>
       <div className="text-2xl font-bold mt-10">
         { item2 == 'm' ? '메뉴선택'

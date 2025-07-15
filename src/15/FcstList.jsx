@@ -17,6 +17,7 @@ export default function FcstList() {
   const getDataFetch = async() => {
     const apikey = import.meta.env.VITE_DATA_API ;
     let baseUrl ;
+    
     if (gubun == '초단기') {
       baseUrl = 'https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?';
     }
@@ -38,7 +39,7 @@ export default function FcstList() {
      getDataFetch();
   } , []) ;
   return (
-    <div  className="w-9/10 flex flex-col items-center">
+    <div  className="mt-30 w-9/10 flex flex-col items-center">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="text-2xl font-bold">
           {area} {gubun}예보 ({dt.replaceAll('-','.')})  

@@ -25,7 +25,8 @@ import AppNav from '../AppNav.jsx'
 
 function App() {
   return (
-    <BrowserRouter>
+   
+       <BrowserRouter>
       <div className="w-full xl:w-4/5 h-screen bg-white mx-auto flex flex-col justify-start items-start">
         <header className="w-full min-h-20 flex justify-between items-center bg-blue-200 ">
           <div className="flex ml-10">
@@ -54,6 +55,7 @@ function App() {
           {/* <Festival2/> */}
           {/* <RouteMain/> */}
           {/* <Fcst/> */}
+
          <Routes>
            <Route path="/MyClock" element={<MyClock/>} />
            <Route path="/Lotto" element={<Lotto />} />
@@ -63,15 +65,16 @@ function App() {
            <Route path="/Gallery" element={<Gallery />} />
            <Route path="/Festival2" element={<Festival2 />} />
            <Route path="/Fcst" element={<Fcst />} />
-           {/* <Route path="/FcstList" element={<FcstList />} /> */}
-         </Routes>
+           <Route path="/FcstList" element={<FcstList />} />
+         </Routes> 
         </main>
 
         <footer className="w-full min-h-20 flex justify-center items-center bg-blue-400 text-white">
           k-digital 2025 2기 FrontEnd
         </footer>
       </div>
-    </BrowserRouter>
+     </BrowserRouter>
+    
   )
 }
 
