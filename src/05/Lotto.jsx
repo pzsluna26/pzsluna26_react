@@ -36,7 +36,7 @@ export default function Lotto() {
   }
 
   return (
-    <div className="mt-50 -full flex flex-col justify-center items-center">
+    <div className="mt-60 -full flex flex-col justify-center items-center">
         <div className="flex justify-center items-center space-x-2">
             {lottoTag} 
         </div>

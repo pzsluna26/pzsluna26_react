@@ -31,7 +31,7 @@ export default function Fcst() {
   } , []) ;
 
   return (
-    <div className="mt-50 w-9/10 grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div className="mt-10 w-9/10 grid grid-cols-1 lg:grid-cols-2 gap-4">
       <input type="date" id="dt"
         ref={dtRef}
         className="block p-1 mx-4 text-gray-900 
