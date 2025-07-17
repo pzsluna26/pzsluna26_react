@@ -9,7 +9,7 @@ export default function MyDivMain() {
   const [ n2 ] = useAtom(cntAtom2) ;
 
   return (
-    <div className="mt-20 w-2/3 h-4/5 bg-amber-900
+    <div className="mt-20 w-2/3 h-4/5 bg-blue-700
                     flex flex-col items-center justify-center
                     p-5 text-2xl
                     text-white font-bold">

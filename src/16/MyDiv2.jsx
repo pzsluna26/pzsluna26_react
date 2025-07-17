@@ -1,7 +1,7 @@
 import MyDiv3 from "./MyDiv3"
 export default function MyDiv2({n, setN}) {
   return (
-    <div className="w-full h-4/5 bg-amber-500
+    <div className="w-full h-4/5 bg-blue-500
                     flex flex-col items-center justify-center
                     p-5 text-2xl
                     text-white font-bold">

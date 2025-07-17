@@ -3,6 +3,7 @@ export default function TailButton({ caption, color, onClick }) {
     blue: "bg-blue-200",
     orange: "bg-orange-200",
     lime: "bg-lime-200",
+    white: "bg-white"
   };
 
   return (

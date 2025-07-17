@@ -9,7 +9,7 @@ export default function MyDiv3({n, setN}) {
     setN(n - 1) ;
   }
   return (
-    <div className="w-full h-full bg-amber-300
+    <div className="w-full h-full bg-blue-200
                     flex flex-col justify-center items-center
                     p-5 text-2xl
                     text-white font-bold">

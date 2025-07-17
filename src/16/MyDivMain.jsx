@@ -8,7 +8,7 @@ export default function MyDivMain() {
     setN2(n * 2)
   } , [n]) ;
   return (
-    <div className="mt-20 w-2/3 h-4/5 bg-amber-900
+    <div className="mt-20 w-2/3 h-4/5 bg-blue-900
                     flex flex-col items-center justify-center
                     p-5 text-2xl
                     text-white font-bold">
