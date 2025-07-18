@@ -57,6 +57,12 @@ export default function AppNav() {
             전역변수
             </div>
         </Link>
+        <Link to="/Ecar">
+            <div className="p-3 m-2 font-bold hover:bg-amber-100
+                         rounded-2xl bg-white">
+            전기자동차
+            </div>
+        </Link>
     </div>
   )
 }
