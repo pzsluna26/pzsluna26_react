@@ -1,5 +1,5 @@
 export default function TailPageNation({ currentPage, totalPage, onPageChange }) {
-  const renderPageNumbers = () => {
+    const renderPageNumbers = () => {
     const pageNumbers = [];
     const maxPageNumbersToShow = 10;  
     let startPage = Math.max(1, currentPage - Math.floor(maxPageNumbersToShow / 2));

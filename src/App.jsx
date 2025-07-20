@@ -23,7 +23,8 @@ import FcstList from './15/FcstList'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppNav from '../AppNav.jsx'
 import MyDivMain from './17/MyDivMain'
-import Ecar from './18/Ecar.jsx'
+// import EvCar from './18/EvCar.jsx'
+import EvCar2 from './18/EvCar2.jsx'
 
 function App() {
   return (
@@ -70,7 +71,7 @@ function App() {
            <Route path="/Fcst" element={<Fcst />} />
            <Route path="/FcstList" element={<FcstList />} />
            <Route path="/MyDivMain" element={<MyDivMain />} />
-           <Route path="/Ecar" element={<Ecar />} />
+           <Route path="/EvCar2" element={<EvCar2 />} />
          </Routes> 
         </main>
 

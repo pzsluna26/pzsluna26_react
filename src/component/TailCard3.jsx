@@ -1,5 +1,5 @@
 
-export default function TailCard2({imgurl, title, subtitle, content}) {
+export default function TailCard2({title, subtitle, content}) {
   let tag ;
   if (content.includes(',')) {
     tag = content.split(',') ;
@@ -16,19 +16,14 @@ export default function TailCard2({imgurl, title, subtitle, content}) {
     <div className="max-w-lg bg-white
                     border border-gray-200 
                     rounded-lg shadow-sm">
- 
-      <div className="w-full h-48">
-      {imgurl ? (
-      <img className="w-full h-full rounded-t-lg object-cover" 
-            src={imgurl} alt={title} />) : null}
-      </div>
+
       <div className="p-5 flex flex-col justify-start items-start">
         <h1 className="mb-2 text-2xl font-bold 
                       tracking-tight text-gray-900">
             {title}
         </h1> 
-        <div className="w-full mb-3 font-normal text-gray-700 
-                        truncate text-left">
+        <div className="w-full h-20 smb-3 font-normal text-gray-700 
+                       text-left">
           {subtitle}
         </div>
         <div className="w-full text-left text-sm">
