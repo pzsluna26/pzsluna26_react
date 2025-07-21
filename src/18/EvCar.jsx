@@ -41,7 +41,7 @@ export default function EvCar() {
       return ;
     }
 
-
+    //버셀배포할때 https 여야함 http안됨
     const apikey = import.meta.env.VITE_DATA_API ;
     const baseUrl = 'https://apis.data.go.kr/B552584/EvCharger/getChargerInfo?' ;
 
