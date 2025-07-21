@@ -18,9 +18,10 @@ export default function TailCard2({imgurl, title, subtitle, content}) {
                     rounded-lg shadow-sm">
  
       <div className="w-full h-48">
-      {imgurl ? (
+        
+      {imgurl && (
       <img className="w-full h-full rounded-t-lg object-cover" 
-            src={imgurl} alt={title} />) : null}
+            src={imgurl} alt={title} />)}
       </div>
       <div className="p-5 flex flex-col justify-start items-start">
         <h1 className="mb-2 text-2xl font-bold 
@@ -28,7 +29,7 @@ export default function TailCard2({imgurl, title, subtitle, content}) {
             {title}
         </h1> 
         <div className="w-full mb-3 font-normal text-gray-700 
-                        truncate text-left">
+                       text-left">
           {subtitle}
         </div>
         <div className="w-full text-left text-sm">

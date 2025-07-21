@@ -1,6 +1,7 @@
 
 export default function TailCard2({title, subtitle, content}) {
   let tag ;
+  // 띄우기
   if (content.includes(',')) {
     tag = content.split(',') ;
     tag = tag.map(item => <span key={item} 
