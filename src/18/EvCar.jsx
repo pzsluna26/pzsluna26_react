@@ -43,7 +43,7 @@ export default function EvCar() {
 
 
     const apikey = import.meta.env.VITE_DATA_API ;
-    const baseUrl = 'http://apis.data.go.kr/B552584/EvCharger/getChargerInfo?' ;
+    const baseUrl = 'https://apis.data.go.kr/B552584/EvCharger/getChargerInfo?' ;
 
                                                           //12개씩         //내용
     let url = `${baseUrl}serviceKey=${apikey}&numOfRows=${perPage}&pageNo=${cpage}&dataType=JSON`;
